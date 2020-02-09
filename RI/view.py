@@ -4,7 +4,7 @@
 # WARNING! All changes made in this file will be lost!
 
 import sys
-sys.path.append('C:/Users/Moi/Desktop/RI')
+sys.path.append(YOUR PATH HERE)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 from Modele import BoolMod,VectMod
