@@ -1,5 +1,5 @@
 import sys
-sys.path.append('C:/Users/Moi/Desktop/RI')
+sys.path.append(YOUR PATH HERE)
 import pickle
 
 operators = ['OR', 'AND', 'NOT']
