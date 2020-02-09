@@ -1,85 +1,151 @@
 # Information-retrieval
-Phase indexation :
-Il existe 7 index on total, 2 index général pour tous les titres avec leurs textes, 3 index de d’un fichier inversé par fréquences et 2 autres index pondérés a bases des 2 derniers FIF.
-All titles (AT = {Num de document -> titre, …})
-Fichier : All_titles.pickle
-Taille : 978 KO 
-Nombre d’entrée : 3204
-Type de structure : dictionnaire de dictionnaire sur python.
-Durée d’indexation de la dernière case 3.3800000000007435e-06ms
-Utilité : Faciliter l’affichage sur l’application.
+Ce projet de TP vise à vous familiariser avec les procédures (modules) de base en recherche d&#39;information (RI) à savoir : (1) l&#39;indexation des documents, (2) la pondération des termes et (3) l&#39;appariement requête-document. Dans ce TP, on traite la collection CACM, le modèle Booléen, le modèle Vectoriel et l&#39;évaluation des formules du modèle Vectoriel, avec le langage Python.
 
-   All textes (AR = {Num de document -> texte, …})
-      Fichier : All_texts.pickle
-      Taille : 978 KO 
-      Nombre d’entrée : 3204
-      Type de structure : dictionnaire de dictionnaire sur python.
-      Durée d’indexation de la dernière case : 4.529999999999812e-06 seconde.
-      Utilité : Faciliter l’affichage sur l’application.
-      
-   Full Dict (FD = {Num de document -> {(Mot, fréquence), ...}, …})
-      Fichier : Full_Dict.pickle
-      Taille : 882 KO 
-      Nombre d’entrée : 3204
-      Type de structure : dictionnaire de dictionnaire sur python.
-      Durée d’indexation de la dernière case 4.7599999999980994e-06 seconde
-      Utilité : Recherche la fréquence des termes par l’ID d’un document.
-   
-   Dinv1 (Dinv1 = {(Mot, Num de document) -> fréquence, …})
-      Fichier : Dict_Inv1.pickle
-      Taille : 1316 KO 
-      Nombre d’entrée : 67529
-      Type de structure : dictionnaire d’entier sur python.
-      Durée d’indexation de la dernière case 4.7599999999980994e-06 seconde.
-      Utilité : Faciliter l’affichage sur l’application.
-    Dinv2 (Dinv2 = {Mot -> [(Num de document, fréquence), ...]}) :
-      Fichier : Dict_Inv2.pickle
-      Taille : 706 KO 
-      Nombre d’entrée : 8275
-      Type de structure : dictionnaire de liste sur python.
-      Durée d’indexation de la dernière case 4.7599999999980994e-06 seconde.
-      Utilité : Recherche la fréquences d’un terme à travers tous les documents.
+1. **Phase indexation :**
 
-	  FDpond (FDpond = {Num de document -> {(Mot, pond), ...}, …}) :
-      Fichier : Dict_Inv1Pond.pickle
-      Taille : 1116 KO 
-      Nombre d’entrée : 3204
-      Type de structure : dictionnaire de liste sur python.
-      Durée d’indexation de la dernière case 6.560000000002675e-06 seconde.
-      Utilité : Recherche la pondération des termes par l’ID du document.
+Il existe 7 index on total, 2 index général pour tous les titres avec leurs textes, 3 index de d&#39;un fichier inversé par fréquences et 2 autres index pondérés a bases des 2 derniers FIF.
 
-	  Dinv2pond (Dinv2pond = {Mot -> {(Num de document, pond), ...}) :
-      Fichier : Dict_Inv2Pond.pickle
-      Taille : 1168 KO 
-      Nombre d’entrée : 8275
-      Type de structure : dictionnaire de liste sur python.
-      Durée d’indexation de la dernière case 2.150000000003538e-06 seconde.
-      Utilité : Recherche la pondération d’un terme à travers tous les documents.
+- --All titles (AT = {Num de document -\&gt; titre, …})
 
-  
-Modèle booléen :
-	Évaluation de l’expression booléen :
-    Tous d’abord, nos operateurs on les mit en majuscule et majuscule seulement, le reste de l’expression peut être quoi que soit vu qu’on 
-      va les transformer en minuscule (nos index sont en minuscules).
-    La transformation d’une expression sans parenthèses se fait très normale en remplaçant les opérateurs AND par « * », 
-      le OU avec « + » et le NOT avec « - ».
-    Dans le cas où il existe les parenthèses on les garde telle qu’elle est.
-    Le reste de l’expression est remplacé par leurs valeur d’existence, 1 si le mot a au moins une fréquence dans un document, 0 sinon.
-    L’évaluation se fait grâce a une fonction de python appelée « eval(expression, globals=None, locals=None) ».
-    Temps de réponse pour requête : 'NOT optimization AND system AND performance' est
-    0.03847418000000001 seconde.
+Fichier : All\_titles.pickle
 
-Modèle Vectoriel :
-  Pour ce modèle nous générons deux vecteur de la requête l'un avec les pondérations de chaque mot et l'autre les fréquences de chaque 
-    de ces mots et nous avons utilisé les 4 mesure de similarité :
-    -Produit interne.
-    -Coefficient de dice.
-    -Cosinus.
-    -Jaccard.
-  Pour l'évaluation de notre modèle nous avons utilisé les deux importantes performances :
-    La précision : qui détermine la value de précision des sélectionné les documents pertinents sans inclure les non pertinents 
-    (uniquement les document pertinents).
-      L’équation de la précision est :   précision = (|L_q∩D_q |)/(|L_q |)
+Taille : 978 KO
 
-	  Le rappel : c'est la valeur de la capacité de déterminer tous les documents pertinents.
-      L’équation du rappel est :   rappel=  (|L_q∩D_q |)/(|D_q |)
+Nombre d&#39;entrée : 3204
+
+        Type de structure : dictionnaire de dictionnaire sur python.
+
+        Durée d&#39;indexation de la dernière case 3.3800000000007435e-06ms
+
+        Utilité : Faciliter l&#39;affichage sur l&#39;application.
+
+- --All textes (AR = {Num de document -\&gt; texte, …})
+
+Fichier : All\_texts.pickle
+
+Taille : 978 KO
+
+Nombre d&#39;entrée : 3204
+
+        Type de structure : dictionnaire de dictionnaire sur python.
+
+        Durée d&#39;indexation de la dernière case : 4.529999999999812e-06 seconde.
+
+        Utilité : Faciliter l&#39;affichage sur l&#39;application.
+
+- --Full Dict (FD = {Num de document -\&gt; {(Mot, fréquence), ...}, …}) :
+
+Fichier : Full\_Dict.pickle
+
+Taille : 882 KO
+
+Nombre d&#39;entrée : 3204
+
+        Type de structure : dictionnaire de dictionnaire sur python.
+
+        Durée d&#39;indexation de la dernière case 4.7599999999980994e-06 seconde
+
+        Utilité : Recherche la fréquence des termes par l&#39;ID d&#39;un document.
+
+- --Dinv1 (Dinv1 = {(Mot, Num de document) -\&gt; fréquence, …}):
+
+Fichier : Dict\_Inv1.pickle
+
+Taille : 1316 KO
+
+Nombre d&#39;entrée : 67529
+
+        Type de structure : dictionnaire d&#39;entier sur python.
+
+        Durée d&#39;indexation de la dernière case 4.7599999999980994e-06 seconde.
+
+        Utilité : Faciliter l&#39;affichage sur l&#39;application.
+
+- --Dinv2 (Dinv2 = {Mot -\&gt; [(Num de document, fréquence), ...]}) :
+
+Fichier : Dict\_Inv2.pickle
+
+Taille : 706 KO
+
+Nombre d&#39;entrée : 8275
+
+        Type de structure : dictionnaire de liste sur python.
+
+        Durée d&#39;indexation de la dernière case 4.7599999999980994e-06 seconde.
+
+        Utilité : Recherche la fréquences d&#39;un terme à travers tous les documents.
+
+- --FDpond (FDpond = {Num de document -\&gt; {(Mot, pond), ...}, …}) :
+
+Fichier : Dict\_Inv1Pond.pickle
+
+Taille : 1116 KO
+
+Nombre d&#39;entrée : 3204
+
+        Type de structure : dictionnaire de liste sur python.
+
+        Durée d&#39;indexation de la dernière case 6.560000000002675e-06 seconde.
+
+        Utilité : Recherche la pondération des termes par l&#39;ID du document.
+
+- --Dinv2pond (Dinv2pond = {Mot -\&gt; {(Num de document, pond), ...}) :
+
+Fichier : Dict\_Inv2Pond.pickle
+
+Taille : 1168 KO
+
+Nombre d&#39;entrée : 8275
+
+        Type de structure : dictionnaire de liste sur python.
+
+        Durée d&#39;indexation de la dernière case 2.150000000003538e-06 seconde.
+
+        Utilité : Recherche la pondération d&#39;un terme à travers tous les documents.
+
+Nous constatons aucun index est parfait, c&#39;est pour cela exactement nous avons utilisés autant d&#39;index que nécessaire pour gagner en temps de réponse.
+
+La difficulté se poserai lors de la mise à jour des ces index sur tous sur l&#39;échelé massive dans le cas d&#39;un vrai moteur de recherche avec des millions de documents.
+
+1. **Modèle booléen :**
+
+- --Évaluation de l&#39;expression booléen :
+
+Tous d&#39;abord, nos operateurs on les mit en majuscule et majuscule seulement, le reste de l&#39;expression peut être quoi que soit vu qu&#39;on va les transformer en minuscule (nos index sont en minuscules).
+
+La transformation d&#39;une expression sans parenthèses se fait très normale en remplaçant les opérateurs AND par « \* », le OU avec « + » et le NOT avec « - ».
+
+Dans le cas où il existe les parenthèses on les garde telle qu&#39;elle est.
+
+Le reste de l&#39;expression est remplacé par leurs valeur d&#39;existence, 1 si le mot a au moins une fréquence dans un document, 0 sinon.
+
+L&#39;évaluation se fait grâce a une fonction de python appelée « eval(expression, globals=None, locals=None) ».
+
+Temps de réponse pour requête : &#39;NOT optimization AND system AND performance&#39; est
+
+0.03847418000000001 seconde.
+
+1. **Modèle Vectoriel :**
+
+Pour ce modèle nous générons deux vecteur de la requête l&#39;un avec les pondérations de chaque mot et l&#39;autre les fréquences de chaque de ces mots et nous avons utilisé les 4 mesure de similarité :
+
+1. -Produit interne.
+2. -Coefficient de dice.
+3. -Cosinus.
+4. -Jaccard.
+
+Pour l&#39;évaluation de notre modèle nous avons utilisé les deux importantes performances :
+
+- --La précision : qui détermine la value de précision des sélectionné les documents pertinents sans inclure les non pertinents (uniquement les document pertinents).
+
+L&#39;équation de la précision est :
+
+
+
+- --Le rappel : c&#39;est la valeur de la capacité de déterminer tous les documents pertinents.
+
+L&#39;équation du rappel est :
+
+
+
+ ![](data:image/*;base64,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)
