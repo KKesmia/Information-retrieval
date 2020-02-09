@@ -2,23 +2,24 @@
 Phase indexation :
   Il existe 7 index on total, 2 index général pour tous les titres avec leurs textes, 3 index de d’un fichier inversé par fréquences 
   et 2 autres index pondérés a bases des 2 derniers FIF.
-	  All titles (AT = {Num de document -> titre, …})
+  
+  All titles (AT = {Num de document -> titre, …})
       Fichier : All_titles.pickle
       Taille : 978 KO 
       Nombre d’entrée : 3204
-	    Type de structure : dictionnaire de dictionnaire sur python.
-	    Durée d’indexation de la dernière case 3.3800000000007435e-06ms
-	    Utilité : Faciliter l’affichage sur l’application.
+      Type de structure : dictionnaire de dictionnaire sur python.
+      Durée d’indexation de la dernière case 3.3800000000007435e-06ms
+      Utilité : Faciliter l’affichage sur l’application.
 
-    All textes (AR = {Num de document -> texte, …})
+   All textes (AR = {Num de document -> texte, …})
       Fichier : All_texts.pickle
       Taille : 978 KO 
       Nombre d’entrée : 3204
-	    Type de structure : dictionnaire de dictionnaire sur python.
-	    Durée d’indexation de la dernière case : 4.529999999999812e-06 seconde.
-	    Utilité : Faciliter l’affichage sur l’application.
-
-	  Full Dict (FD = {Num de document -> {(Mot, fréquence), ...}, …}) :
+      Type de structure : dictionnaire de dictionnaire sur python.
+      Durée d’indexation de la dernière case : 4.529999999999812e-06 seconde.
+      Utilité : Faciliter l’affichage sur l’application.
+      
+   Full Dict (FD = {Num de document -> {(Mot, fréquence), ...}, …})
       Fichier : Full_Dict.pickle
       Taille : 882 KO 
       Nombre d’entrée : 3204
