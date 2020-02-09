@@ -3,7 +3,7 @@ import sys
 import operator
 import pickle
 #add path of the project folder on your laptop here 
-sys.path.append('C:/Users/Moi/Desktop/RI')
+sys.path.append(YOUR PATH HERE)
 try:
 	stopwords = open("common_words" ,"r", encoding='utf-8')
 	cacm= open("cacm.all" ,"r", encoding='utf-8')
