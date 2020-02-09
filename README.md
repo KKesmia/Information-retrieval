@@ -1,5 +1,5 @@
 # Information-retrieval
-Ce projet de TP vise à vous familiariser avec les procédures (modules) de base en recherche d&#39;information (RI) à savoir : (1) l&#39;indexation des documents, (2) la pondération des termes et (3) l&#39;appariement requête-document. Dans ce TP, on traite la collection CACM, le modèle Booléen, le modèle Vectoriel et l&#39;évaluation des formules du modèle Vectoriel, avec le langage Python.
+CREDITS : KESMIA KHALED et BENARBA OUSSAMA
 
 1. **Phase indexation :**
 
