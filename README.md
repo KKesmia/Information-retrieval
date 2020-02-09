@@ -1,15 +1,14 @@
 # Information-retrieval
 Phase indexation :
-  Il existe 7 index on total, 2 index général pour tous les titres avec leurs textes, 3 index de d’un fichier inversé par fréquences 
-  et 2 autres index pondérés a bases des 2 derniers FIF.
-  
-  All titles (AT = {Num de document -> titre, …})
-      Fichier : All_titles.pickle
-      Taille : 978 KO 
-      Nombre d’entrée : 3204
-      Type de structure : dictionnaire de dictionnaire sur python.
-      Durée d’indexation de la dernière case 3.3800000000007435e-06ms
-      Utilité : Faciliter l’affichage sur l’application.
+	Il existe 7 index on total, 2 index général pour tous les titres avec leurs textes, 3 index de d’un fichier inversé par fréquences 
+  	et 2 autres index pondérés a bases des 2 derniers FIF.
+	All titles (AT = {Num de document -> titre, …})
+      		Fichier : All_titles.pickle
+      		Taille : 978 KO 
+      		Nombre d’entrée : 3204
+      		Type de structure : dictionnaire de dictionnaire sur python.
+      		Durée d’indexation de la dernière case 3.3800000000007435e-06ms
+      		Utilité : Faciliter l’affichage sur l’application.
 
    All textes (AR = {Num de document -> texte, …})
       Fichier : All_texts.pickle
@@ -26,16 +25,15 @@ Phase indexation :
       Type de structure : dictionnaire de dictionnaire sur python.
       Durée d’indexation de la dernière case 4.7599999999980994e-06 seconde
       Utilité : Recherche la fréquence des termes par l’ID d’un document.
-
-	  Dinv1 (Dinv1 = {(Mot, Num de document) -> fréquence, …}):
+   
+   Dinv1 (Dinv1 = {(Mot, Num de document) -> fréquence, …})
       Fichier : Dict_Inv1.pickle
       Taille : 1316 KO 
       Nombre d’entrée : 67529
       Type de structure : dictionnaire d’entier sur python.
       Durée d’indexation de la dernière case 4.7599999999980994e-06 seconde.
       Utilité : Faciliter l’affichage sur l’application.
-
-	  Dinv2 (Dinv2 = {Mot -> [(Num de document, fréquence), ...]}) :
+    Dinv2 (Dinv2 = {Mot -> [(Num de document, fréquence), ...]}) :
       Fichier : Dict_Inv2.pickle
       Taille : 706 KO 
       Nombre d’entrée : 8275
